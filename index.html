@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Hardworking Bby 💖✨</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<style>
+:root{--pink:#FF7096;--rose:#FFACC7;--soft:#FFD6E0}
+body{font-family:'Quicksand',sans-serif;color:#4A3B5C;overflow-x:hidden;min-height:100vh;
+background:linear-gradient(135deg,#FFF5F8,#F3E8FF,#FFF0F5,#FFF5F8);background-size:300% 300%;animation:bgShift 18s ease infinite}
+@keyframes bgShift{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+.glass{background:rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.9);box-shadow:0 12px 32px -4px rgba(255,112,150,.14)}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(40px) scale(.97);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* Floating background */
+.fbg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.fi{position:absolute;bottom:-50px;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{transform:translate(0,0) rotate(0) scale(.7);opacity:0}15%{opacity:.6}50%{transform:translate(25px,-55vh) rotate(180deg) scale(1)}85%{opacity:.5}100%{transform:translate(-15px,-112vh) rotate(360deg) scale(1.15);opacity:0}}
+
+/* Bear */
+.bear{animation:bounce 3s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+.earL{transform-origin:70px 70px;animation:wigL 4s ease-in-out infinite}
+.earR{transform-origin:130px 70px;animation:wigR 4s ease-in-out infinite}
+@keyframes wigL{0%,85%,100%{transform:rotate(0)}90%{transform:rotate(-14deg)}95%{transform:rotate(5deg)}}
+@keyframes wigR{0%,85%,100%{transform:rotate(0)}90%{transform:rotate(14deg)}95%{transform:rotate(-5deg)}}
+.eyes{transform-origin:100px 88px;animation:blink 4.5s infinite}
+@keyframes blink{0%,94%,98%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.bear-jump{animation:jump .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes jump{0%{transform:scale(1)}30%{transform:scale(1.18,.88)}60%{transform:scale(.94,1.12) translateY(-18px)}100%{transform:scale(1)}}
+.heartbeat{transform-origin:100px 45px;animation:hb 1.4s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+
+/* Buttons: shimmer + ripple */
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 3.2s infinite}
+@keyframes shine{0%{left:-120%}60%,100%{left:140%}}
+.rip{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.7);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+.tap{transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s}
+.tap:hover{transform:translateY(-4px)}
+.tap:active{transform:scale(.93)}
+
+/* Breathing */
+.bc{transition:transform 4s ease-in-out,background-color 4s ease-in-out,box-shadow 4s ease-in-out}
+.b-in{transform:scale(1.45);background:#FFACC7;box-shadow:0 0 45px rgba(255,112,150,.55)}
+.b-hold{transform:scale(1.45);background:#D8B4F8;box-shadow:0 0 55px rgba(216,180,248,.75)}
+.b-out{transform:scale(1);background:#FFD6E0;box-shadow:0 0 15px rgba(255,214,224,.4)}
+.ring{position:absolute;inset:0;border-radius:9999px;border:2px solid #FFACC7;animation:ring 3s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+
+/* Bubbles */
+.sb{background:radial-gradient(circle at 30% 30%,#fff,#ffd6e0 60%,#ffacc7);box-shadow:inset -3px -3px 8px rgba(255,112,150,.3),0 6px 12px rgba(255,172,199,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);animation:wob 3s ease-in-out infinite}
+.sb:nth-child(even){animation-delay:-1.5s}
+@keyframes wob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.sb.popped{animation:pop .4s ease-out;background:#FFF5F8;box-shadow:inset 2px 2px 5px rgba(0,0,0,.06);border:2px dashed #FFACC7}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(.95)}}
+
+/* Selectable cards */
+.sel{transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.sel.on{background:linear-gradient(135deg,#FFF0F5,#FFE3EC);border-color:#FF7096;transform:translateY(-4px) scale(1.03);box-shadow:0 10px 20px -5px rgba(255,112,150,.35)}
+
+/* Letter */
+.letter{animation:letterIn .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes letterIn{0%{opacity:0;transform:translateY(30px) rotateX(-40deg) scale(.9)}100%{opacity:1;transform:none}}
+.cursor::after{content:"|";animation:cur .7s steps(1) infinite;color:var(--pink)}
+@keyframes cur{50%{opacity:0}}
+
+/* Popup */
+.pop{position:fixed;pointer-events:none;z-index:100;transform:translate(-50%,-50%);animation:popFloat 2.2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes popFloat{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}25%{transform:translate(-50%,-60%) scale(1.15);opacity:1}80%{transform:translate(-50%,-90%) scale(1);opacity:1}100%{transform:translate(-50%,-120%) scale(.8);opacity:0}}
+.counter-bump{animation:bump .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes bump{50%{transform:scale(1.5)}}
+#toast{transition:all .4s cubic-bezier(.34,1.56,.64,1)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="pb-24">
+<div id="fbg" class="fbg"></div>
+<div id="burst" class="fixed inset-0 pointer-events-none z-50 overflow-hidden"></div>
+
+<nav class="sticky top-3 z-40 max-w-2xl mx-auto px-4">
+  <div class="glass rounded-full px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-pink-500 rounded-full animate-ping"></span>
+      <span class="text-xs sm:text-sm font-bold text-pink-600">Late Night Study Support 🌙</span></div>
+    <button id="snd" onclick="toggleSound()" class="text-xs bg-pink-100 text-pink-700 font-bold py-1.5 px-3 rounded-full">🔊 SFX</button>
+  </div>
+</nav>
+
+<main class="max-w-2xl mx-auto px-4 pt-6 space-y-8 relative z-10">
+
+<header class="glass reveal rounded-3xl p-6 sm:p-8 text-center">
+  <div class="w-40 h-40 mx-auto mb-2 cursor-pointer" onclick="bearCheer()">
+    <svg id="bearsvg" viewBox="0 0 200 200" class="w-full h-full bear drop-shadow-md">
+      <g class="earL"><circle cx="62" cy="60" r="22" fill="#D4A373"/><circle cx="62" cy="60" r="12" fill="#FEFAE0"/></g>
+      <g class="earR"><circle cx="138" cy="60" r="22" fill="#D4A373"/><circle cx="138" cy="60" r="12" fill="#FEFAE0"/></g>
+      <path d="M55,135 C55,110 145,110 145,135 L155,175 C155,185 45,185 45,175 Z" fill="#FFACC7"/>
+      <path d="M90,135 Q88,150 90,155 M110,135 Q112,150 110,155" stroke="#FFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <ellipse cx="100" cy="95" rx="48" ry="42" fill="#D4A373"/>
+      <ellipse cx="68" cy="102" rx="9" ry="5" fill="#FF7096" opacity=".55"/><ellipse cx="132" cy="102" rx="9" ry="5" fill="#FF7096" opacity=".55"/>
+      <ellipse cx="100" cy="104" rx="18" ry="14" fill="#FEFAE0"/><ellipse cx="100" cy="99" rx="6" ry="4.5" fill="#6C584C"/>
+      <path d="M100,103 L100,108 M93,108 Q100,114 107,108" stroke="#6C584C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <g class="eyes"><circle cx="78" cy="88" r="4.5" fill="#3D2C2E"/><circle cx="122" cy="88" r="4.5" fill="#3D2C2E"/><circle cx="76.5" cy="86.5" r="1.5" fill="#FFF"/><circle cx="120.5" cy="86.5" r="1.5" fill="#FFF"/></g>
+      <circle cx="78" cy="88" r="13" stroke="#7209B7" stroke-width="2.5" fill="rgba(255,255,255,.2)"/><circle cx="122" cy="88" r="13" stroke="#7209B7" stroke-width="2.5" fill="rgba(255,255,255,.2)"/>
+      <line x1="91" y1="88" x2="109" y2="88" stroke="#7209B7" stroke-width="2.5"/>
+      <rect x="65" y="160" width="70" height="16" rx="4" fill="#FFF" stroke="#E2D4F0" stroke-width="2"/><rect x="65" y="156" width="70" height="6" rx="2" fill="#FF7096"/>
+      <ellipse cx="75" cy="158" rx="11" ry="8" fill="#D4A373"/><ellipse cx="125" cy="158" rx="11" ry="8" fill="#D4A373"/>
+      <path class="heartbeat" d="M100,38 C100,38 90,28 84,33 C78,38 82,47 100,55 C118,47 122,38 116,33 C110,28 100,38 100,38 Z" fill="#FF7096"/>
+    </svg>
+  </div>
+  <div id="bearsay" class="inline-block bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Tap me for a cheer! 🐾</div>
+  <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3">Hey My Hardworking Bby! 🥺💖</h1>
+  <p class="text-gray-600 text-sm sm:text-base leading-relaxed">I know you're working super late on your assignments and I wish I could be right next to you with snacks. Take a <b class="text-pink-500">2-minute break</b> right here! 💕</p>
+</header>
+
+<section class="glass reveal rounded-3xl p-6 sm:p-8">
+  <div class="flex items-center justify-between gap-2 mb-5">
+    <div><h2 class="text-xl font-bold text-gray-800">🤗 Instant Affection</h2><p class="text-xs text-gray-500">Tap to recharge!</p></div>
+    <div class="bg-gradient-to-r from-pink-500 to-rose-400 text-white px-4 py-2 rounded-2xl text-center">
+      <div class="font-bold text-lg" id="cnt">0</div><div class="text-[10px] opacity-90">collected</div></div>
+  </div>
+  <div class="grid grid-cols-3 gap-2.5">
+    <button onclick="give('hug')" class="rip tap bg-gradient-to-br from-pink-100 to-rose-200 border-2 border-pink-300 rounded-2xl p-3"><div class="text-3xl mb-1">🫂</div><div class="font-bold text-pink-900 text-xs">Bear Hug</div></button>
+    <button onclick="give('kiss')" class="rip tap bg-gradient-to-br from-purple-100 to-pink-200 border-2 border-purple-300 rounded-2xl p-3"><div class="text-3xl mb-1">😘</div><div class="font-bold text-purple-900 text-xs">Kisses</div></button>
+    <button onclick="give('cheer')" class="rip tap bg-gradient-to-br from-amber-100 to-orange-200 border-2 border-amber-300 rounded-2xl p-3"><div class="text-3xl mb-1">🌟</div><div class="font-bold text-amber-900 text-xs">Proud of you</div></button>
+  </div>
+  <div id="status" class="mt-4 bg-white/80 border border-pink-200 rounded-2xl p-3 text-center text-sm font-semibold text-pink-700">Tap any button for long-distance love! 🥰</div>
+</section>
+
+<section class="glass reveal rounded-3xl p-6 sm:p-8 space-y-6">
+  <div><h2 class="text-xl font-bold text-gray-800">🫧 1-Minute Brain Freshener</h2><p class="text-xs text-gray-500">Rest your eyes for a moment.</p></div>
+  <div class="bg-gradient-to-b from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6 text-center">
+    <div class="my-10 flex justify-center">
+      <div class="relative w-32 h-32">
+        <div id="rings"></div>
+        <div id="bb" class="bc b-out relative w-32 h-32 rounded-full flex flex-col items-center justify-center p-4 cursor-pointer select-none shadow-md" onclick="breathe()">
+          <span id="be" class="text-2xl mb-1">🌸</span><span id="bt" class="text-xs font-bold text-pink-900 leading-tight">Tap to breathe</span></div>
+      </div>
+    </div>
+    <button id="bbtn" onclick="breathe()" class="shimmer bg-purple-500 text-white text-sm font-bold px-5 py-2.5 rounded-full">Start 3 Deep Breaths 🌬️</button>
+  </div>
+  <div class="bg-white/70 border border-pink-200 rounded-2xl p-5">
+    <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-800">Pop for a hidden note 🎈</h3>
+      <button onclick="renderBubbles();snd('select')" class="text-xs bg-pink-100 text-pink-700 font-bold px-3 py-1.5 rounded-full">🔄 Reset</button></div>
+    <div id="bgrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+  </div>
+</section>
+
+<section class="glass reveal rounded-3xl p-6 sm:p-8">
+  <h2 class="text-xl font-bold text-gray-800 mb-1">💌 "Open When..." Letters</h2><p class="text-xs text-gray-500 mb-4">Tap an envelope when you need me.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <button onclick="openLetter(0)" class="rip tap text-left bg-gradient-to-br from-rose-50 to-pink-100 border-2 border-pink-200 rounded-2xl p-4 flex items-center gap-3"><span class="text-3xl">🤯</span><b class="text-sm text-gray-800">Open when your brain feels fried</b></button>
+    <button onclick="openLetter(1)" class="rip tap text-left bg-gradient-to-br from-purple-50 to-indigo-100 border-2 border-purple-200 rounded-2xl p-4 flex items-center gap-3"><span class="text-3xl">🥺</span><b class="text-sm text-gray-800">Open when you miss me</b></button>
+    <button onclick="openLetter(2)" class="rip tap text-left bg-gradient-to-br from-amber-50 to-orange-100 border-2 border-amber-200 rounded-2xl p-4 flex items-center gap-3"><span class="text-3xl">💪</span><b class="text-sm text-gray-800">Open when you want to give up</b></button>
+    <button onclick="openLetter(3)" class="rip tap text-left bg-gradient-to-br from-teal-50 to-emerald-100 border-2 border-teal-200 rounded-2xl p-4 flex items-center gap-3"><span class="text-3xl">🎉</span><b class="text-sm text-gray-800">Open when you finish a task!</b></button>
+  </div>
+  <div id="ld" class="hidden mt-5 bg-white border-2 border-pink-300 rounded-2xl p-5 relative">
+    <button onclick="document.getElementById('ld').classList.add('hidden')" class="absolute top-3 right-3 text-gray-400 bg-gray-100 rounded-full w-7 h-7 text-sm font-bold">✕</button>
+    <div id="ltag" class="text-pink-500 font-bold text-xs uppercase mb-1"></div>
+    <h3 id="ltitle" class="text-lg font-bold text-gray-800 mb-2"></h3>
+    <p id="lbody" class="text-gray-700 text-sm leading-relaxed italic"></p>
+    <div class="mt-3 text-right text-xs font-bold text-pink-600">— Forever yours 🥰</div>
+  </div>
+</section>
+
+<section class="glass reveal rounded-3xl p-6 sm:p-8 border-2 border-pink-300">
+  <div class="text-center mb-6">
+    <span class="bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">📋 Your Turn, Pretty Girl!</span>
+    <h2 class="text-2xl font-bold text-gray-800 mt-2">Fill Out Your Care Order 🧸</h2>
+    <p class="text-xs text-gray-500 mt-1">Pick your answers and hit send — it goes straight to my WhatsApp!</p>
+  </div>
+  <div class="space-y-7">
+    <div>
+      <label class="block font-bold text-gray-800 mb-3">1. How is my bby feeling? 🥺</label>
+      <div id="moods" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+        <button onclick="pickMood(this,'😴 Super Sleepy')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">😴</div><div class="text-xs font-bold text-gray-700">Super Sleepy</div></button>
+        <button onclick="pickMood(this,'🤯 Brain is Fried')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🤯</div><div class="text-xs font-bold text-gray-700">Brain Fried</div></button>
+        <button onclick="pickMood(this,'🥺 Craving Your Hugs')" class="sel on bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🥺</div><div class="text-xs font-bold text-gray-700">Craving Hugs</div></button>
+        <button onclick="pickMood(this,'😤 Stressed Out')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">😤</div><div class="text-xs font-bold text-gray-700">Stressed Out</div></button>
+        <button onclick="pickMood(this,'💪 Powering Through')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">💪</div><div class="text-xs font-bold text-gray-700">Powering Through</div></button>
+        <button onclick="pickMood(this,'🥰 Feeling Loved')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🥰</div><div class="text-xs font-bold text-gray-700">Feeling Loved</div></button>
+      </div>
+    </div>
+    <div class="bg-pink-50 border border-pink-200 rounded-2xl p-4">
+      <div class="flex justify-between mb-2"><label class="text-sm font-bold text-gray-700">🔋 Brain Battery</label><span id="en" class="text-sm font-bold bg-pink-500 text-white px-2.5 rounded-full">45% 🪫</span></div>
+      <input type="range" min="1" max="100" value="45" oninput="setEnergy(this.value)" class="w-full accent-pink-500">
+    </div>
+    <div>
+      <label class="block font-bold text-gray-800 mb-3">2. Late-night cravings 🧋 <span class="text-xs font-normal text-pink-600">(pick many)</span></label>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+        <button onclick="toggleCrave(this,'🧋 Boba Tea')" class="sel on bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🧋</div><div class="text-xs font-bold text-gray-700">Boba Tea</div></button>
+        <button onclick="toggleCrave(this,'☕ Chai / Coffee')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">☕</div><div class="text-xs font-bold text-gray-700">Chai / Coffee</div></button>
+        <button onclick="toggleCrave(this,'🍫 Chocolate')" class="sel on bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🍫</div><div class="text-xs font-bold text-gray-700">Chocolate</div></button>
+        <button onclick="toggleCrave(this,'🍟 Snacks')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🍟</div><div class="text-xs font-bold text-gray-700">Snacks</div></button>
+        <button onclick="toggleCrave(this,'🍨 Ice Cream')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🍨</div><div class="text-xs font-bold text-gray-700">Ice Cream</div></button>
+        <button onclick="toggleCrave(this,'🫂 Cuddles')" class="sel on bg-white border-2 border-pink-100 rounded-2xl p-3 text-center"><div class="text-2xl">🫂</div><div class="text-xs font-bold text-gray-700">Cuddles</div></button>
+      </div>
+    </div>
+    <div>
+      <label class="block font-bold text-gray-800 mb-3">3. How should I spoil you after? 👑</label>
+      <div id="spoils" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <button onclick="pickSpoil(this,'📱 Cozy Video Call Date')" class="sel on bg-white border-2 border-pink-100 rounded-2xl p-3.5 flex items-center gap-3 text-left"><span class="text-2xl">📱</span><span class="text-sm font-bold text-gray-800">Cozy Video Call Date</span></button>
+        <button onclick="pickSpoil(this,'🍿 Movie Night Together')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3.5 flex items-center gap-3 text-left"><span class="text-2xl">🍿</span><span class="text-sm font-bold text-gray-800">Movie Night Together</span></button>
+        <button onclick="pickSpoil(this,'🛵 Treat to Food')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3.5 flex items-center gap-3 text-left"><span class="text-2xl">🛵</span><span class="text-sm font-bold text-gray-800">Treat You to Food</span></button>
+        <button onclick="pickSpoil(this,'😴 Long Nap + Wake-up Text')" class="sel bg-white border-2 border-pink-100 rounded-2xl p-3.5 flex items-center gap-3 text-left"><span class="text-2xl">😴</span><span class="text-sm font-bold text-gray-800">Long Nap + Wake-up Text</span></button>
+      </div>
+    </div>
+    <div>
+      <label class="block font-bold text-gray-800 mb-2">4. Write a note or tell me what you need 💬</label>
+      <textarea id="note" rows="3" placeholder="This assignment is so longgg 😭 call me when I finish..." class="w-full rounded-2xl border-2 border-pink-200 p-3.5 text-sm focus:outline-none focus:border-pink-500"></textarea>
+    </div>
+    <button onclick="sendWA(this)" class="rip shimmer w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 text-white font-bold text-base shadow-lg shadow-pink-300/60 tap">Send My Answers & Hugs on WhatsApp 💬💖</button>
+    <div class="text-center"><button onclick="copyMsg()" class="text-xs text-pink-600 font-bold underline">📋 Or copy the message</button></div>
+  </div>
+</section>
+
+<footer class="text-center text-xs text-gray-500 py-4">Made with endless love just for my favorite girl 💖✨</footer>
+</main>
+
+<div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4">
+  <div class="bg-gray-900/90 text-white text-sm font-bold px-5 py-3 rounded-full flex gap-2"><span id="ti">💖</span><span id="tt"></span></div>
+</div>
+
+<script>
+/* ========= EDIT THIS: your WhatsApp number, digits only, with country code (no + or spaces) ========= */
+const WA_NUMBER = "447000000000";
+/* ====================================================================================================== */
+
+let count=0, mood='🥺 Craving Your Hugs', energy=45, soundOn=true, synth=null;
+let craves=new Set(['🧋 Boba Tea','🍫 Chocolate','🫂 Cuddles']), spoil='📱 Cozy Video Call Date';
+
+const compliments=["You're the smartest girl I know! 🧠✨","Almost there my love! 🏆💖","Your hard work will pay off! 🌟","Cutest academic weapon ever! 🧸📚","1,000 forehead kisses! 😘💕","Sip some water! 💧🌸","I'm cheering SO loud! 📣❤️","You + Me = cuddles after! 🥰"];
+const letters=[
+ {tag:"When your brain feels fried 🤯",title:"Take a deep breath, smart girl...",body:"It's okay if the words are blurring together. You've worked so hard. Close your eyes for 30 seconds, sip some water, and remember one tough assignment doesn't define how brilliant you are. Tiny baby steps — you're going to crush this!"},
+ {tag:"When you miss me 🥺",title:"I'm missing you right back, 100x more!",body:"Even with the distance, my heart is sitting right next to your desk cheering you on. Imagine my arms around you and my chin on your shoulder. As soon as you're done, I'm all yours!"},
+ {tag:"When you want to give up 💪",title:"Look how far you've already come!",body:"I know you're exhausted, bby. Just do one small section at a time. Done is better than perfect! I'm SO proud of you. Push through this last stretch so you can sleep like a baby tonight!"},
+ {tag:"When you finish a task 🎉",title:"YAYYY! THAT'S MY BABY!! 🥳💖",body:"Look at you go!! Another chunk knocked out! Give yourself a pat on the back. Send me your care order below so I can spoil you properly!"}
+];
+const bearLines=["You're doing amazing, bby! 🐾💖","Drink some water for me! 💧🐻","He misses you SO much! 🥺💕","Smartest girl in the world! 🎓✨","Sending warm bear hugs! 🤗🌸"];
+let bl=0;
+
+/* Sound */
+function snd(t){
+  if(!soundOn||typeof Tone==='undefined')return;
+  try{
+    if(Tone.context.state!=='running')Tone.start();
+    if(!synth){synth=new Tone.PolySynth(Tone.Synth,{oscillator:{type:'sine'},envelope:{attack:.01,decay:.2,sustain:.05,release:.4}}).toDestination();synth.volume.value=-10}
+    const n=Tone.now();
+    if(t==='pop')synth.triggerAttackRelease(["C6","E6"],"16n",n);
+    else if(t==='hug'){["C5","E5","G5"].forEach((x,i)=>synth.triggerAttackRelease(x,"16n",n+i*.08));synth.triggerAttackRelease("C6","8n",n+.24)}
+    else if(t==='select')synth.triggerAttackRelease("A5","32n",n);
+    else if(t==='letter')synth.triggerAttackRelease(["F5","A5","C6"],"8n",n);
+  }catch(e){}
+}
+function toggleSound(){soundOn=!soundOn;document.getElementById('snd').textContent=soundOn?'🔊 SFX':'🔇 Muted';if(soundOn)snd('select')}
+
+/* Floating bg */
+(function(){const c=document.getElementById('fbg'),s=['💖','✨','🌸','💕','⭐','🫧','🌷'];
+ for(let i=0;i<20;i++){const e=document.createElement('div');e.className='fi';e.textContent=s[i%s.length];
+ e.style.left=Math.random()*96+'vw';e.style.fontSize=14+Math.random()*16+'px';e.style.animationDuration=12+Math.random()*16+'s';e.style.animationDelay=Math.random()*10+'s';c.appendChild(e)}})();
+
+/* Scroll reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Ripple on any .rip button */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.rip');if(!b)return;
+  const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement('span');
+  s.className='ripple';s.style.width=s.style.height=d+'px';s.style.left=e.clientX-r.left-d/2+'px';s.style.top=e.clientY-r.top-d/2+'px';
+  b.appendChild(s);setTimeout(()=>s.remove(),600);
+});
+
+/* Burst */
+function burst(x,y,em){
+  const c=document.getElementById('burst');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');p.textContent=em[i%em.length];
+    p.style.cssText=`position:absolute;left:${x}px;top:${y}px;font-size:${18+Math.random()*18}px;transition:all 1.2s cubic-bezier(.16,1,.3,1);pointer-events:none`;
+    c.appendChild(p);
+    const a=Math.PI*2*i/18+Math.random()*.4,d=70+Math.random()*130;
+    requestAnimationFrame(()=>{p.style.transform=`translate(${Math.cos(a)*d}px,${Math.sin(a)*d-50}px) scale(.4) rotate(${Math.random()*120-60}deg)`;p.style.opacity='0'});
+    setTimeout(()=>p.remove(),1250);
+  }
+}
+
+/* Bear */
+function bearCheer(){
+  snd('hug');
+  const s=document.getElementById('bearsvg');s.classList.remove('bear-jump');void s.offsetWidth;s.classList.add('bear-jump');
+  document.getElementById('bearsay').textContent=bearLines[bl++%bearLines.length];
+  burst(innerWidth/2,200,['💖','🐾','✨','🌸']);
+}
+
+/* Affection */
+function give(t){
+  snd('hug');count++;
+  const c=document.getElementById('cnt');c.textContent=count;c.classList.remove('counter-bump');void c.offsetWidth;c.classList.add('counter-bump');
+  const m={hug:['🫂💖','Squeezing you tight!',`🤗 <b>Hug #${count}!</b> My arms are wrapped around you.`,['🫂','💖','🧸','💕']],
+    kiss:['😘💋','MWAH! Forehead kisses!',`😘 <b>Kiss #${count}!</b> Right on your forehead.`,['😘','💋','💞','✨']],
+    cheer:['🌟👑','SO PROUD OF YOU!',`🌟 <b>Cheer #${count}!</b> You're unstoppable!`,['🌟','👑','🎉','💖']]}[t];
+  document.getElementById('status').innerHTML=m[2];
+  const p=document.createElement('div');p.className='pop bg-white/95 border-2 border-pink-400 rounded-3xl px-6 py-4 shadow-2xl text-center';
+  p.style.left=45+Math.random()*10+'%';p.style.top=45+Math.random()*10+'%';
+  p.innerHTML=`<div class="text-4xl mb-1">${m[0]}</div><div class="font-bold text-pink-600 text-sm whitespace-nowrap">${m[1]}</div>`;
+  document.body.appendChild(p);setTimeout(()=>p.remove(),2200);
+  burst(innerWidth/2,innerHeight/2,m[3]);
+}
+
+/* Breathing */
+let breathing=false,tos=[];
+const bb=document.getElementById('bb'),be=document.getElementById('be'),bt=document.getElementById('bt'),bbtn=document.getElementById('bbtn'),rings=document.getElementById('rings');
+function setB(cls,e,t){bb.className='bc '+cls+' relative w-32 h-32 rounded-full flex flex-col items-center justify-center p-4 cursor-pointer select-none shadow-md';be.textContent=e;bt.textContent=t}
+function ringsOn(on){rings.innerHTML=on?'<div class="ring"></div><div class="ring" style="animation-delay:1s"></div>':''}
+function breathe(){
+  if(breathing){breathing=false;tos.forEach(clearTimeout);tos=[];ringsOn(false);setB('b-out','🌸','Tap to breathe');bbtn.textContent='Start 3 Deep Breaths 🌬️';return}
+  breathing=true;snd('select');bbtn.textContent='Stop ⏹️';ringsOn(true);
+  const cyc=n=>{
+    if(!breathing)return;
+    if(n>3){breathing=false;ringsOn(false);setB('b-out','🥰','All calm! Proud of you!');bbtn.textContent='3 More Breaths 🌬️';snd('hug');return}
+    setB('b-in','🌷',`Breathe in... (${n}/3)`);
+    tos.push(setTimeout(()=>breathing&&setB('b-hold','✨','Hold gently...'),4000));
+    tos.push(setTimeout(()=>breathing&&setB('b-out','🍃','Breathe out the stress...'),6500));
+    tos.push(setTimeout(()=>cyc(n+1),10500));
+  };cyc(1);
+}
+
+/* Bubbles */
+function renderBubbles(){
+  const g=document.getElementById('bgrid');g.innerHTML='';
+  compliments.forEach(c=>{
+    const b=document.createElement('button');b.className='sb h-24 rounded-2xl p-3 flex flex-col items-center justify-center text-center select-none';
+    b.innerHTML='<span class="text-2xl mb-1">🫧</span><span class="text-xs font-bold text-pink-800">Pop Me!</span>';
+    b.onclick=e=>{if(b.classList.contains('popped'))return;snd('pop');b.classList.add('popped');
+      b.innerHTML=`<span class="text-xs font-bold text-pink-600 leading-snug">${c}</span>`;
+      const r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,['🫧','✨','💖'])};
+    g.appendChild(b);
+  });
+}
+renderBubbles();
+
+/* Letters with typewriter */
+let typer=null;
+function openLetter(i){
+  snd('letter');clearInterval(typer);
+  const l=letters[i],d=document.getElementById('ld'),body=document.getElementById('lbody');
+  document.getElementById('ltag').textContent='💖 '+l.tag;document.getElementById('ltitle').textContent=l.title;
+  d.classList.remove('hidden');d.classList.remove('letter');void d.offsetWidth;d.classList.add('letter');
+  body.textContent='';body.classList.add('cursor');let k=0;
+  typer=setInterval(()=>{body.textContent=l.body.slice(0,++k);if(k>=l.body.length){clearInterval(typer);body.classList.remove('cursor')}},18);
+  d.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* Form handlers */
+function one(btn,sel){snd('select');document.querySelectorAll(sel+' .sel').forEach(b=>b.classList.remove('on'));btn.classList.add('on')}
+function pickMood(b,v){mood=v;one(b,'#moods')}
+function pickSpoil(b,v){spoil=v;one(b,'#spoils')}
+function setEnergy(v){energy=v;document.getElementById('en').textContent=v+'% '+(v>75?'⚡':v>40?'🔋':'🪫')}
+function toggleCrave(b,v){snd('select');if(craves.has(v)){if(craves.size>1){craves.delete(v);b.classList.remove('on')}}else{craves.add(v);b.classList.add('on')}}
+
+/* WhatsApp */
+function buildMsg(){
+  const note=document.getElementById('note').value.trim()||"I love you so much! Thank you for cheering me up 🥺💖";
+  return [`💌 *LATE-NIGHT STUDY UPDATE FROM YOUR BBY* 💌`,``,
+  `🥺 *Mood:* ${mood}`,`🔋 *Brain Battery:* ${energy}%`,`🤗 *Hugs & Kisses Collected:* ${Math.max(count,1)}x`,
+  `🧋 *Cravings:* ${[...craves].join(', ')}`,`👑 *Spoil me after with:* ${spoil}`,``,`💬 *Note:*`,`"${note}"`,``,`Send me more hugs right now!! 🥰💖`].join('\n');
+}
+function sendWA(btn){
+  snd('hug');
+  const r=btn.getBoundingClientRect();burst(r.left+r.width/2,r.top,['💖','💌','✨','🥰']);
+  toast('💌','Opening WhatsApp... just tap send!');
+  const url=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMsg())}`;
+  setTimeout(()=>{location.href=url},700);
+}
+function copyMsg(){
+  const t=document.createElement('textarea');t.value=buildMsg();document.body.appendChild(t);t.select();
+  try{document.execCommand('copy')}catch(e){}document.body.removeChild(t);toast('📋','Message copied!');
+}
+function toast(i,m){
+  const t=document.getElementById('toast');document.getElementById('ti').textContent=i;document.getElementById('tt').textContent=m;
+  t.classList.remove('opacity-0','translate-y-4');
+  setTimeout(()=>t.classList.add('opacity-0','translate-y-4'),3000);
+}
+</script>
+</body>
+</html>
